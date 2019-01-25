@@ -9,6 +9,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 
 import com.example.weatherforecast.R
+import com.example.weatherforecast.data.ApixuWeatherApiService
+import kotlinx.android.synthetic.main.fragment_current_weather.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class CurrentWeatherFragment : Fragment() {
 
@@ -30,6 +35,13 @@ class CurrentWeatherFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(CurrentWeatherViewModel::class.java)
+
+        val service = ApixuWeatherApiService()
+
+        GlobalScope.launch(Dispatchers.Main) {
+            val response = service.getCurrentWeather("london").await()
+            textR.text = response.currentWeatherEntry.toString()
+        }
         // TODO: Use the ViewModel
     }
 }
