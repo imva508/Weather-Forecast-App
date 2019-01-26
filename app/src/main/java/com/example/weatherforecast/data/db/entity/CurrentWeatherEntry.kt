@@ -14,10 +14,10 @@ data class CurrentWeatherEntry(
     val condition: Condition,
 
     @SerializedName("feelslike_c")
-    val feelslikeC: Double,
+    val feelsLikeC: Double,
 
     @SerializedName("feelslike_f")
-    val feelslikeF: Double,
+    val feelsLikeF: Double,
 
     @SerializedName("is_day")
     val isDay: Int,

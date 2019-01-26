@@ -20,7 +20,9 @@ class WeatherNetworkDataSourceImpl(private val apixuWeatherApiService: ApixuWeat
             val fetchedCurrentWeather = apixuWeatherApiService
                 .getCurrentWeatherAsync(location, languageCode)
                 .await()
+
             mutableDownloadedCurrentWeather.postValue(fetchedCurrentWeather)
+
         } catch (e: NoConnectivityException) {
             Log.e("CONNECTIVITY", "No internet connection", e)
         }
