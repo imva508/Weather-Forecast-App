@@ -17,5 +17,4 @@ class CurrentWeatherViewModel(private val forecastRepository: ForecastRepository
         forecastRepository.getCurrentWeather(isMetric)
     }
 
-
 }

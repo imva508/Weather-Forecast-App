@@ -6,12 +6,14 @@ import com.example.weatherforecast.data.db.ForecastDatabase
 import com.example.weatherforecast.data.db.repository.ForecastRepository
 import com.example.weatherforecast.data.db.repository.ForecastRepositoryImpl
 import com.example.weatherforecast.data.network.*
+import com.example.weatherforecast.ui.weather.current.CurrentWeatherViewModelFactory
 import com.jakewharton.threetenabp.AndroidThreeTen
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance
+import org.kodein.di.generic.provider
 import org.kodein.di.generic.singleton
 
 class ForecastApplication : Application(), KodeinAware {
@@ -25,6 +27,7 @@ class ForecastApplication : Application(), KodeinAware {
         bind() from singleton { ApixuWeatherApiService(instance()) }
         bind<WeatherNetworkDataSource>() with singleton { WeatherNetworkDataSourceImpl(instance()) }
         bind<ForecastRepository>() with singleton { ForecastRepositoryImpl(instance(), instance()) }
+        bind() from provider { CurrentWeatherViewModelFactory(instance()) }
     }
 
     override fun onCreate() {
