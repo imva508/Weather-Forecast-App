@@ -1,4 +1,4 @@
-package com.example.weatherforecast.data.response
+package com.example.weatherforecast.data.network.response
 
 import com.example.weatherforecast.data.db.entity.CurrentWeatherEntry
 import com.example.weatherforecast.data.db.entity.Location

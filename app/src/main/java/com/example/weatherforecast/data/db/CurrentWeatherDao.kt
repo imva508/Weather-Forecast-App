@@ -8,7 +8,7 @@ import androidx.room.Query
 import com.example.weatherforecast.data.db.entity.CURRENT_WEATHER_ID
 import com.example.weatherforecast.data.db.unitlocalized.ImperialCurrentWeatherEntry
 import com.example.weatherforecast.data.db.unitlocalized.MetricCurrentWeatherEntry
-import com.example.weatherforecast.data.response.CurrentWeatherResponse
+import com.example.weatherforecast.data.network.response.CurrentWeatherResponse
 
 @Dao
 interface CurrentWeatherDao {
